@@ -4,23 +4,15 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                // Cloning the repository (this happens automatically if you're using a Multibranch Pipeline)
                 checkout scm
             }
         }
 
-        stage('Set Permissions') {
+        stage('Execute Bash Script') {
             steps {
-                // Make the script executable (not required on Windows, but keep the stage for cross-platform)
-                bat 'echo Setting permissions is not applicable on Windows.'
+                bat './runLs.bat'
             }
         }
 
-        stage('Execute Script') {
-            steps {
-                // Execute the script
-                bat 'runLs.bat'
-            }
-        }
     }
 }
