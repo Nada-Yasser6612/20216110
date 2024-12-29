@@ -11,15 +11,15 @@ pipeline {
 
         stage('Set Permissions') {
             steps {
-                // Make the script executable
-                sh 'chmod +x runLs.sh'
+                // Make the script executable (not required on Windows, but keep the stage for cross-platform)
+                bat 'echo Setting permissions is not applicable on Windows.'
             }
         }
 
         stage('Execute Script') {
             steps {
                 // Execute the script
-                sh './runLs.sh'
+                bat 'runLs.bat'
             }
         }
     }
